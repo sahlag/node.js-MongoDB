@@ -1,4 +1,5 @@
-const module1 = require('./module1');
+// Appel du fichier “module1.js” dans le programme principal 
+const module1 = require('module1');
 
 console.log('bonjour');
 const monTableau = [1, 2, 3, 4, 5];
