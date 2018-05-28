@@ -32,14 +32,21 @@ server.listen(3001);
 
 
 let match = new EventEmitter();
-let points = 0;
+let pointsA = 0;
+let pointsB = 0;
 
 // définition de l'évenement
-match.on('twopoints',() =>{
+match.on('panier',(equipe, nbPoints) =>{
   setTimeout(() =>{
-  points+= 2;
-  console.log('Nouveau 2points, score :' +points+ '(dans la callback' );
+  if(equipe === 'equipe1'){
+      pointsA += nbPoints;
+  } else if(equipe === 'equipe2' ) {
+      pointsB +=nbPoints
+  } 
+
+  console.log('Score :equpe1 :' +pointsA+ ',equipe2:'+pointsB );
   }, 100);
+
 });
 
 
@@ -49,10 +56,12 @@ match.on('twopoints',() =>{
 
 
 /** NOUVEAU PANIER ***/
-console.log(`1 Score avant l'evenement: ${points}`);
-match.emit('twopoints');
-console.log(`1 Score aprés l'evenement: ${points}`);
 
-console.log(`2 Score avant l'evenement: ${points}`);
-match.emit('twopoints');
-console.log(`2 Score aprés l'evenement: ${points}`);
+match.emit('panier', 'equipe1',2);
+match.emit('panier', 'equipe2',3);
+match.emit('panier', 'equipe1',3);
+match.emit('panier', 'equipe2',2);
+
+/*nouveau panier*/
+
+
