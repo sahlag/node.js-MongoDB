@@ -11,8 +11,11 @@ let server = http.createServer((request, response) => {
     response.write('<p>Creation du serveur http</p>');
    
 
-    const resultat = calculatrice.addition(12, 42);
-    response.write(`<p>mon resultat "${resultat}" </p>`);
+    let resultat = calculatrice.addition(12, 42);
+    response.write(`<p>addition "${resultat}" </p>`);
+
+    resultat = calculatrice.multiplication(11, 32);
+    response.write(`<p>Multiplication "${resultat}" </p>`);
     response.end ();
    
 
