@@ -6,7 +6,7 @@ const http = require('http');
 // Création du serveur HTTP
 let server = http.createServer((request, response) => {
 
-    response.write('<h1> Hello world !</h1>');
+    response.write('<h1> hello world !</h1>');
     response.write('<p>Creation du serveur http</p>');
     response.end ();
 
