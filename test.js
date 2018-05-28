@@ -16,6 +16,12 @@ let server = http.createServer((request, response) => {
 
     resultat = calculatrice.multiplication(11, 32);
     response.write(`<p>Multiplication "${resultat}" </p>`);
+    //Utilisation de la fonction principale
+    resultat = calculatrice('addition', 5, 17);
+    response.write(`<p>Addition (fonction principale) "${resultat}" </p>`);
+    resultat = calculatrice('multiplication', 5, 17);
+    response.write(`<p>Multiplication (fonction principale) "${resultat}" </p>`);
+
     response.end ();
    
 
