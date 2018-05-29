@@ -1,18 +1,19 @@
 const http = require('http');
 const url = require('url');
+const querystring = require('querystring');
 // Création du serveur.
 let server = http.createServer((request, response) =>{
 
 // on récupère l'URL de la rqeuet
 let path = request.url;
 // Objet qui décompose l'url
-path = url.parse(path);
+let objPath = url.parse(path);
 //on récupère le "pathname" qui l'on peut tester:
 // -il est situé aprés le nom de domaine
 // -il est situé avant les paramètre GET
 
 // selon l'URL, on effectue des actions différentes.
-path = path.pathname;
+path = objPath.pathname;
 
     switch(path){
         case '/':
@@ -20,6 +21,14 @@ path = path.pathname;
             break;
         case '/admin':
                 response.write('<h1><meta charset="utf-8">zone Sécurisée</h1>');            
+            break;
+        case '/blog':
+        // Récupération des paramètres GET
+            let paramGet = objPath.query;
+            paramGet = querystring.parse(paramGet);
+            console.log('Objet représentant les différents paramétres GET');
+            console.log(paramGet);
+               response.write('<h1>blog</h1>');
             break;
         default:
                 response.writeHead(404); // le code de l'url
