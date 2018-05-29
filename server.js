@@ -27,7 +27,7 @@ path = objPath.pathname;
             let paramGet = objPath.query;
             paramGet = querystring.parse(paramGet);
             console.log('Objet représentant les différents paramétres GET');
-            console.log(paramGet);
+            console.log(paramGet)
                response.write('<h1>blog</h1>');
             break;
         default:
