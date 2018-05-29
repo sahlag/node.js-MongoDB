@@ -1,8 +1,19 @@
 const http = require('http');
-
+const url = require('url');
 // Création du serveur.
 let server = http.createServer((request, response) =>{
-    const path = request.url;
+
+// on récupère l'URL de la rqeuet
+let path = request.url;
+// Objet qui décompose l'url
+path = url.parse(path);
+//on récupère le "pathname" qui l'on peut tester:
+// -il est situé aprés le nom de domaine
+// -il est situé avant les paramètre GET
+
+// selon l'URL, on effectue des actions différentes.
+path = path.pathname;
+
     switch(path){
         case '/':
                 response.write('<h1>Bienvenue sur la page d\'accueil</h1>');
@@ -11,12 +22,11 @@ let server = http.createServer((request, response) =>{
                 response.write('<h1><meta charset="utf-8">zone Sécurisée</h1>');            
             break;
         default:
-                response.writeHead(404);
+                response.writeHead(404); // le code de l'url
                 response.write('<h1>Error 404: Page NOT FOUND</h1>');
     }
 
-    response.write('<h1>Hello</h1>');
-    response.end();
+                response.end();
 
 });
 
