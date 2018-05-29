@@ -37,7 +37,7 @@ function stopMatch(){
 
 match.on('panier', addScore);
 match.on('panier', sifflet);
-match.on('findeMatch', stopMatch);
+match.once('findeMatch', stopMatch);
 
 /**Début de match **/
 
@@ -49,5 +49,6 @@ match.emit('panier', 'A', 1);
 
 
 match.emit('findeMatch');
-match.emit('panier', 'B', 2);
+match.emit('panier', 'B', 2);// il se passe rien apres la fin de match.
+match.emit('findeMatch');
 /**fin de match **/
