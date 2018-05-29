@@ -11,6 +11,7 @@ let server = http.createServer((request, response) =>{
                 response.write('<h1><meta charset="utf-8">zone Sécurisée</h1>');            
             break;
         default:
+                response.writeHead(404);
                 response.write('<h1>Error 404: Page NOT FOUND</h1>');
     }
 
