@@ -10,6 +10,6 @@ console.log(buffer2.toString());// transformer un buffer en string.
 
 const chaine = "012345abcde";
 const buffer = new Buffer(chaine);
-buffer[10] = buffer[0]
+buffer[10] = buffer[0]// il remplace l'indice 0 par l'indice 12.
 console.log(buffer);
 console.log(buffer.toString());
