@@ -13,3 +13,17 @@ fs.readFile('./public/log.txt', {
         }
     }
 );
+
+// ecriture dans un fichier.
+
+fs.writeFile('./public/log.txt', '[30/05/2018 10:54]: mise a jour du fichier "log.txt"',{
+ encodage : 'utf-8', flag : 'w'
+},
+  (err)=>{
+      if(err){
+          console.log(err);
+      } else{
+          console.log('Ecriture ok !')
+      }
+  }
+);
