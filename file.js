@@ -27,3 +27,17 @@ fs.writeFile('./public/log.txt', '[30/05/2018 10:54]: mise a jour du fichier "lo
       }
   }
 );
+
+// ecriture dans un fichier.
+
+fs.appendFile('./public/log.txt', '[30/05/2018 10:54]: mise a jour du fichier "log.txt", ajout d\'autre informations',{
+    encodage : 'utf-8', flag : 'a'
+   },
+     (err)=>{
+         if(err){
+             console.log(err);
+         } else{
+             console.log('Ajout ok !')
+         }
+     }
+   );
